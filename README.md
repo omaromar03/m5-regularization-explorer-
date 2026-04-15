@@ -1,18 +1,20 @@
-# m5-regularization-explorer-
-Regularization path visualization using Logistic Regression
 # Regularization Explorer
 
 This project visualizes how Logistic Regression coefficients change as regularization strength varies across 20 logarithmically spaced values of C from 0.001 to 100.
 
-## What this shows
-- **L1 regularization** drives some coefficients exactly to zero, which makes feature elimination visible.
-- **L2 regularization** shrinks coefficients smoothly toward zero, but usually does not eliminate them completely.
-- Features that remain relatively stable across the regularization path are likely to be more robust predictors.
+## Objective
+The goal is to compare how **L1** and **L2** regularization affect feature coefficients in a telecom churn prediction task.
+
+## What the visualization shows
+- **L1 regularization** pushes some coefficients exactly to zero, making feature elimination visible.
+- **L2 regularization** shrinks coefficients gradually toward zero, but usually keeps all features in the model.
+- Features that remain relatively stable across the path are likely to be more robust predictors.
 
 ## Interpretation
-The plot shows that L1 regularization creates sparse solutions by forcing weaker features to zero as regularization becomes stronger. L2 regularization, in contrast, keeps all features in the model while reducing their magnitudes more gradually. Based on this behavior, L1 is useful when model simplicity and feature selection are priorities, while L2 is often preferable when we want to preserve all predictive signals and handle multicollinearity more smoothly.
+The regularization path shows that L1 produces sparse solutions by eliminating weaker predictors as regularization becomes stronger. In contrast, L2 keeps all features while reducing their magnitudes more smoothly. Based on these results, L1 is a strong choice when feature selection and simpler models are preferred, while L2 is better when preserving all available predictive information is more important.
 
 ## Files
-- `regularization_explorer.py`
-- `regularization_path.png`
-- `data/telecom_churn.csv`
+- `regularization_explorer.py` — main script
+- `regularization_path.png` — output visualization
+- `data/telecom_churn.csv` — dataset
+- `requirements.txt` — dependencies
