@@ -11,8 +11,11 @@ The goal is to compare how **L1** and **L2** regularization affect feature coeff
 - Features that remain relatively stable across the path are likely to be more robust predictors.
 
 ## Interpretation
-The regularization path shows that L1 produces sparse solutions by eliminating weaker predictors as regularization becomes stronger. In contrast, L2 keeps all features while reducing their magnitudes more smoothly. Based on these results, L1 is a strong choice when feature selection and simpler models are preferred, while L2 is better when preserving all available predictive information is more important.
+The plot illustrates how the model behaves differently under L1 and L2 regularization as the value of C changes, where C represents the inverse strength of regularization. When using L1 regularization, the coefficients of some features decrease progressively and eventually reach exactly zero when C is small (i.e., when regularization is strong). This indicates that the model considers these features unimportant and effectively removes them, which is known as feature selection. 
 
+In contrast, L2 regularization causes the coefficients to shrink gradually toward zero but rarely eliminates them completely. This means that all features remain in the model, although their influence is reduced. Additionally, some features remain relatively stable across different values of C, suggesting that they are strong and reliable predictors, while others shrink rapidly, indicating lower importance and sensitivity to regularization. 
+
+Based on these observations, L1 regularization is more suitable when the goal is to build a simpler model with fewer features, whereas L2 is preferred when it is important to retain all available information and handle multicollinearity more effectively.
 ## Files
 - `regularization_explorer.py` — main script
 - `regularization_path.png` — output visualization
